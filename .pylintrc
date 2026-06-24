@@ -1,0 +1,11 @@
+[MASTER]
+load-plugins=pylint.extensions.no_self_use
+
+[FORMAT]
+max-line-length=120
+
+[MESSAGES CONTROL]
+disable=C0114,C0115,C0116,R0903
+
+[DESIGN]
+max-args=6

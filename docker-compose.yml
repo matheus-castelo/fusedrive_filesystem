@@ -1,0 +1,25 @@
+services:
+  fuse-drive:
+    build: .
+    container_name: fuse-drive
+    privileged: true
+    devices:
+      - /dev/fuse:/dev/fuse
+    cap_add:
+      - SYS_ADMIN
+    env_file:
+      - .env
+    environment:
+      - DRIVE_MOUNT_DIR=/mnt/drive
+      - PUID=1000
+      - PGID=1000
+      - FUSE_ALLOW_OTHER=1
+    stop_signal: SIGINT
+    stop_grace_period: 15s
+    volumes:
+      - ./credentials.json:/app/credentials.json:ro
+      - type: bind
+        source: ./mount_dir
+        target: /mnt/drive
+        bind:
+          propagation: rshared

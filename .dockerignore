@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+mount_dir/
+.pytest_cache/
+.code-review-graph/
+*.json
